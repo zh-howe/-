@@ -1,0 +1,72 @@
+<view class="modify">
+	<view class="modify-ban">
+		<view class="modify-ban-top">
+			<text>我的头像</text>
+			<view>
+				<open-data type="userAvatarUrl"></open-data>
+			</view>
+		</view>
+		<view class="modify-ban-bottom">
+			<text>我的昵称</text>
+			<view>
+				<open-data type="userNickName"></open-data>
+			</view>
+		</view>
+	</view>
+	<view class="modify-allow">
+		<view>
+			<view class="modify-allow-left">
+				<text>手机号</text>
+				<text style="color:red;">*</text>
+			</view>
+			<view class="modify-allow-right">
+				<form>
+					<button wx:if="{{phone == null}}" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">一键获取 ></button>
+					<button wx:else>{{phone}}</button>
+				</form>
+			</view>
+		</view>
+		<view>
+			<view class="modify-allow-left">
+				<text>姓名</text>
+				<text style="color:red;">*</text>
+			</view>
+			<view class="modify-allow-right">
+				<input type="text" bindchange="ueserName" placeholder="请填写姓名" value="{{name}}" />
+			</view>
+		</view>
+		<view>
+			<view class="modify-allow-left">
+				<text>生日</text>
+				<text style="color:red;">*</text>
+			</view>
+			<view class="modify-allow-right">
+				<text wx:if="{{date.length == null && yearsData == null}}" bindtap="quxiao">点击选择 ></text>
+				<text wx:if="{{date.length != null && yearsData == null}}" bindtap="choice">{{years[date[0]]}}-{{months[date[1]]}}-{{days[date[2]]}} ></text>
+				<text wx:if="{{date.length == null && yearsData != null}}" bindtap="quxiao">{{yearsData}} ></text>
+			</view>
+		</view>
+	</view>
+	<view class="conserve" bindtap="conserve">
+		保存
+	</view>
+	<view class="birthday2" wx:if="{{code}}" bindtap="quxiao"></view>
+	<view class="birthday" wx:if="{{code}}">
+		<view class="birthday-decision">
+			<text bindtap="quxiao">取消</text>
+			<text bindtap="queren">确认</text>
+		</view>
+		<picker-view indicator-style="height: 50px;" style="width: 100%; height: 150px;" value="{{value}}" bindchange="birthday">
+			<picker-view-column>
+			  <view wx:for="{{years}}" wx:key="{{index}}" style="line-height: 50px">{{item}}年</view>
+			</picker-view-column>
+			<picker-view-column>
+			  <view wx:for="{{months}}" wx:key="{{index}}" style="line-height: 50px">{{item}}月</view>
+			</picker-view-column>
+			<picker-view-column>
+			  <view wx:for="{{days}}" wx:key="{{index}}" style="line-height: 50px">{{item}}日</view>
+			</picker-view-column>
+		</picker-view>
+	</view>
+	
+</view>

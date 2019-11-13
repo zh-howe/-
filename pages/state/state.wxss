@@ -1,0 +1,158 @@
+/* pages/state/state.wxss */
+.state-state{
+	width:750rpx;
+	height:40px;
+	line-height: 40px;
+	display: flex;
+	position: relative;
+	background:#FFFFFF;
+	overflow-x: auto;
+}
+.state-state view{
+	min-width:140rpx;
+	text-align: center;
+	font-size: 14px;
+	color:#444;
+}
+.bg-color{
+	position: absolute;
+	bottom:0;
+	min-width:140rpx;
+	height:2px;
+	background:#D63C34;
+	transition: all .5s;
+	-moz-transition: all .5s;
+	-webkit-transition: all .5s;
+	-o-transition: all .5s;
+}
+page{
+	background:#f5f5f5;
+	width:100%;
+	height:100%;
+}
+.state-time{
+	padding:0 20rpx;
+	margin-top:10px;
+	background:#FFFFFF;
+}
+.state-item-top{
+	display: flex;
+	justify-content: space-between;
+	height:40px;
+	line-height: 40px;
+}
+.state-item-top text{
+	font-size: 14px;
+	color:#666;
+}
+.state-item-top text:nth-child(2){
+	font-size: 15px;
+	color:#D63C34;
+}
+.state-cont{
+	border-bottom: solid 1px #eee;
+	height:160rpx;
+	padding-bottom:20rpx;
+	padding-top: 6px;
+}
+.state-cont navigator{
+	display: flex;
+}
+.state-cont-img{
+	width:160rpx;
+	height:160rpx;
+}
+.state-cont-img image{
+	width:100%;
+	height:100%;
+}
+.state-cont-title{
+	width:380rpx;
+	padding:0 10rpx;
+}
+.state-cont-title text{
+	font-size: 14px;
+	color:#666;
+	display: inline-block;
+	height: 61px;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	overflow: hidden;
+}
+.state-cont-price{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	text-align: right;
+	width:140rpx;
+}
+.state-cont-price text:nth-child(2){
+	color:#666;
+}
+.state-price{
+	border-bottom: solid 1px #eee;
+	height:40px;
+	line-height: 40px;
+	display: flex;
+	justify-content: space-between;
+}
+.state-price text{
+	font-size: 14px;
+	color:#666;
+}
+.state-price text:nth-child(2){
+	color:#D63C34;
+}
+.state-btn{
+	text-align: right;
+	height:50px;
+	line-height: 50px;
+}
+.state-btn>view{
+	width:100%;
+	height:50px;
+	display: flex;
+	justify-content: space-between;
+}
+.state-btn text{
+	display: inline-block;
+	height:31px;
+	line-height: 31px;
+	font-size: 14px;
+	color:#D63C34;
+	border:solid 1px #D63C34;
+	padding:0 15px;
+	margin-top:9px;
+}
+.state-btn .del-order{
+	border:solid 1px #ccc;
+	color:#666;
+	font-size: 12px;
+}
+
+/* .state-num-two{
+	display: flex;
+	justify-content: space-between;
+} */
+
+.state-btn .state-gray{
+	color:#777;
+	border-color:#ccc;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

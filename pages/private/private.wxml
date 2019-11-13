@@ -1,0 +1,33 @@
+<view class="private">
+	<picker bindchange="type" wx:for="{{datas}}" range="{{item.type}}" wx:key="{{index}}" value="{{index}}" data-id="{{index}}">
+		<view class="picker private-fu">
+		  <text class="color">*</text><text class="private-title">{{item.title}}：</text><text class="private-cont">{{item.name}}</text>
+		</view>
+	</picker>
+	<view class="name private-fu">
+		<text class="color">*</text><text class="private-title">您的姓名：</text><input type="text" placeholder="请输入您的姓名" bindinput="oname" class="private-cont" />
+	</view>
+	<view class="tel private-fu">
+		<text class="color">*</text><text class="private-title">联系方式：</text><text wx:if="{{privates.tel != null}}" class="private-cont">{{privates.tel}}</text>
+		<button wx:if="{{privates.tel == null}}" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号</button>
+	</view>
+	<view class="text-content">
+		<text class="private-title">备注：</text>
+		<textarea class="text-tarea" name="" bindconfirm="remarks" bindinput="remarks" placeholder="输入更多定制要求，我们会为您仔细设计。"></textarea>
+	</view>
+	<view class="conserve" bindtap="conserve">
+		提交
+	</view>
+	<!-- <picker bindchange="design" range="{{design[0]}}">
+		<view class="picker">
+		  建筑设计：{{name[1]}}
+		</view>
+	</picker>
+	<picker bindchange="style" range="{{style}}">
+		<view class="picker">
+		  设计风格：{{name[2]}}
+		</view>
+	</picker> -->
+	
+</view>
+

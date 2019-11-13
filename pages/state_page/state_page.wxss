@@ -1,0 +1,121 @@
+/* pages/state_page/state_page.wxss */
+page{
+	background:#f5f5f5;
+}
+.statePage-title{
+	background:#fd4122;
+	height:100px;
+	display: flex;
+	justify-content: space-between;
+	width:590rpx;
+	padding:0 80rpx;
+}
+.statePage-title-text{
+	margin-top:26px;
+	height:48px;
+	line-height: 24px;
+}
+.statePage-title-state text{
+	color:#fff;
+	font-size: 17px;
+}
+.statePage-title-date text{
+	color:#fff;
+	font-size: 13px;
+}
+.statePage-title-img{
+	margin-top: 25px;
+}
+.statePage-title-img image{
+	width:50px;
+	height:50px;
+}
+.state-cont{
+	display: flex;
+	height:160rpx;
+	padding:20rpx;
+	border-top:solid 1px #eee;
+	background:#fff;
+}
+.state-cont-img{
+	width:160rpx;
+	height:160rpx;
+}
+.state-cont-img image{
+	width:100%;
+	height:100%;
+}
+.state-cont-title{
+	width:380rpx;
+	padding:0 10rpx;
+}
+.state-cont-title text{
+	font-size: 14px;
+	color:#666;
+	display: inline-block;
+	height: 61px;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	overflow: hidden;
+}
+.state-cont-price{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	text-align: right;
+	width:140rpx;
+}
+.state-cont-price text:nth-child(2){
+	color:#666;
+}
+.statePage-news{
+	padding:0 20rpx;
+	heigth:40px;
+	line-height: 40px;
+	background:#fff;
+	font-size: 14px;
+	color:#333;
+}
+.statePage-bg{
+	height:10px;
+	background:#f5f5f5;
+}
+.statePage-text{
+	background:#fff;
+	border-bottom: solid 1px #eee;
+	height:44px;
+	line-height: 44px;
+	padding:0 20rpx;
+	font-size: 14px;
+	color:#333;
+}
+.statePage-refund{
+	padding:5px 20rpx;
+	background:#fff;
+	display: flex;
+	flex-direction: column;
+}
+.statePage-refund text{
+	color:#666;
+	line-height: 26px;
+	font-size: 13px;
+}
+.statePage-but{
+	padding:0 20rpx;
+	margin-top:10px;
+	text-align: right;
+}
+.statePage-but text{
+	padding:7px 15px;
+	font-size: 13px;
+}
+.statePage-but text:nth-child(1){
+	border:solid 1px #ccc;
+	color:#666;
+	margin-right: 14px;
+}
+.statePage-but text:nth-child(2){
+	border:solid 1px #fd4122;
+	color:#fd4122;
+}

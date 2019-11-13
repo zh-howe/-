@@ -1,0 +1,19 @@
+<!--pages/commentary/commentary.wxml-->
+<view class="commentary-page">
+	<view class="other-comment" wx:for="{{pageData.data}}" wx:key="{{index}}">
+		<view class="other-comment-title">
+			<view>
+				<image src="{{item.src}}"></image><text>{{item.name}}</text>
+			</view>
+			<view class="other-comment-img">
+				<image wx:for="{{starMap}}" wx:for-item="item2" wx:for-index="index2" wx:key="{{index2}}" 
+				src="{{oindex[index]>item2.id?'../image/icon/xing2.png':'../image/icon/xing.png'}}" 
+				data-id2="{{index2}}" data-id="{{index}}">
+				</image>
+			</view>
+		</view>
+		<view class="other-comment-content">
+			{{item.content}}
+		</view>
+	</view>
+</view>

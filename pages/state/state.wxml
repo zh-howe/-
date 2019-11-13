@@ -1,0 +1,84 @@
+<!--pages/state/state.wxml-->
+<view class="state-page">
+	<view class="state-state">
+		<view wx:for="{{state}}" wx:key="{{index}}" data-id="{{index}}" bindtap="stateState" style="color:{{index==id?'#D63C34':'#444444'}};">{{item}}</view>
+		<view class="bg-color" style="left:{{left}}rpx;"></view>
+	</view>
+	<view class="state-main" wx:if="{{code}}">
+		<view class="state-time" wx:for="{{odata}}" wx:for-item="item" wx:key="{{index}}">
+			<view class="state-item-top"> <!-- wx:if="{{item.trading == 1}}" -->
+				<text>下单时间：{{item.datetime}}</text>
+				<text wx:if="{{item.status == 1}}">待支付</text>
+				<text wx:if="{{item.status == 2}}">待发货</text>
+				<text wx:if="{{item.status == 3}}">待收货</text>
+				<text wx:if="{{item.status == 4}}">待评价</text>
+				<text wx:if="{{item.status == 5}}">退款</text>
+				<text wx:if="{{item.status == 6}}">交易成功</text>
+				<text wx:if="{{item.status == 7}}">交易关闭</text>
+			</view>
+			<!-- <view class="state-item-top" wx:else>
+				<text>下单时间：{{item.datetime}}</text>
+				<text wx:if="{{item.trading == 2}}">交易成功</text>
+				<text wx:if="{{item.trading == 3}}">交易关闭</text>
+			</view> -->
+			<view class="state-cont" wx:for="{{item.chil}}" wx:for-item="items" wx:key="{{okey}}">
+				<navigator url="../state_page/state_page?id={{item.id}}" hover-class='none'>
+					<view class="state-cont-img">
+						<image src="{{items.img}}"></image>
+					</view>
+					<view class="state-cont-title">
+						<text>{{items.name}}</text>
+					</view>
+					<view class="state-cont-price">
+						<text>￥{{items.price}}</text>
+						<text>×{{items.num}}</text>
+					</view>
+				</navigator>
+			</view>
+			<view class="state-price">
+				<text>购买数量：{{item.nums}}</text>
+				<text>实付：￥{{item.prices}}</text>
+			</view>
+			<view class="state-btn">
+				<view wx:if="{{item.status == 1}}" class="state-num-two">
+					<text bindtap="buy" data-id="{{index}}" class="del-order state-gray">取消订单</text>
+					<text bindtap="buy2" data-id="{{index}}">去支付</text>
+				</view>
+				<view wx:if="{{item.status == 2}}">
+					<text class="state-gray" bindtap="buy5" data-id="{{index}}">申请退款</text>
+					<text>待发货</text>
+				</view>
+				<view wx:if="{{item.status == 3}}">
+					<text class="state-gray" bindtap="buy5" data-id="{{index}}">申请退款</text>
+					<text bindtap="buy3" data-id="{{index}}">确认收货</text>
+				</view>
+				<view wx:if="{{item.status == 4}}">
+					<text class="state-gray" bindtap="buy5" data-id="{{index}}">申请退款</text>
+					<text bindtap="buy4" data-id="{{index}}">去评价</text>
+				</view>
+				<view wx:if="{{item.status == 5}}">
+					<text class="state-gray" bindtap="buy6" data-id="{{index}}" wx:if="{{item.r_status == 1}}">删除订单</text>
+					<text class="state-gray" wx:if="{{item.r_status == 1}}">已退款</text>
+					<text class="state-gray" wx:if="{{item.r_status == 2}}">退款中</text>
+				</view>
+				<view wx:if="{{item.status == 6}}">
+					<text class="state-gray" bindtap="buy6" data-id="{{index}}">删除订单</text>
+					<text>订单已完成</text>
+				</view>
+				<view wx:if="{{item.status == 7}}">
+					<text class="state-gray" bindtap="buy6" data-id="{{index}}">删除订单</text>
+					<text class="state-gray">订单已取消</text>
+				</view>
+				<modal title="取消订单" cancel="关闭" confirm="确定" hidden="{{mHidden}}" bindcancel="modelCancel" bindconfirm="changeModel">
+					确认取消订单吗？
+				</modal>
+				<modal title="删除订单" cancel="关闭" confirm="确定" hidden="{{mHidden2}}" bindcancel="modelCancel2" bindconfirm="changeModel2">
+					确认删除订单吗？
+				</modal>
+				<modal title="确认收货" cancel="关闭" confirm="确定" hidden="{{mHidden3}}" bindcancel="modelCancel3" bindconfirm="changeModel3">
+					确认收货吗？
+				</modal>
+			</view>
+		</view>
+	</view>
+</view>

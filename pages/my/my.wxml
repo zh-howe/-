@@ -1,0 +1,105 @@
+<view class="my">
+	<view class="my-header">
+		<image src="../image/my-bg.jpg"></image>
+		<!-- <view class="header-left">
+			<view>
+				<open-data type="userAvatarUrl"></open-data>
+			</view>
+			<view>
+				<open-data type="userNickName"></open-data>
+			</view>
+		</view> -->
+		<!-- <view class="header-left" bindtap="login">
+			<image src="{{data.url}}"></image>
+			<button wx-if="{{!code}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">头像/昵称</button>
+			<text wx-if="{{code}}">{{data.name}}</text>
+		</view> -->
+		<view class="header-left">
+			<image src="{{data.url}}"></image>
+			<button wx-if="{{!code}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">头像/昵称</button>
+			<text wx-if="{{code}}">{{data.name}}</text>
+		</view>
+		<view class="header-right">
+			<!-- <navigator url='../modify/modify' hover-class='none'> -->
+				<image src="../image/icon/xg.png" bindtap="xiugai"></image>
+			<!-- </navigator> -->
+		</view>
+	</view>
+	<view class="bgColor"></view>
+	<view class="order">
+		<text>订单信息</text>
+		<view class="full-order" bindtap="state">
+			<text>查看全部订单</text>
+			<image src="../image/icon/jtr.png"></image>
+		</view>
+	</view>
+	<view class="logistics">
+		<view wx:for="{{state}}" wx:key="{{index}}" data-id="{{index}}" bindtap="state">
+			<image src="../image/icon/{{item.src}}"></image>
+			<text>{{item.name}}</text>
+		</view>
+		<!-- <view>
+			<image src="../image/icon/05.png"></image>
+			<text>退款/售后</text>
+		</view> -->
+	</view>
+	<view class="bgColor"></view>
+	<view class="my-list">
+		<view class="my-list-item">
+			<navigator url='../address/address' hover-class='none'>
+				<view>
+					<image src="../image/icon/dz.png"></image>
+					<text>收货地址</text>
+				</view>
+				<image src="../image/icon/jtr.png"></image>
+			</navigator>
+		</view>
+		<view class="my-list-item">
+			<navigator url='../member/member' hover-class='none'>
+				<view>
+					<image src="../image/icon/jf.png"></image>
+					<text>成为会员</text>
+				</view>
+				<image src="../image/icon/jtr.png"></image>
+			</navigator>
+		</view>
+		<view class="my-list-item">
+			<navigator url='../coupon/coupon' hover-class='none'>
+				<view>
+					<image src="../image/icon/yhq.png"></image>
+					<text>我的优惠券</text>
+				</view>
+				<image src="../image/icon/jtr.png"></image>
+			</navigator>
+		</view>
+		<!-- <view class="my-list-item">
+			<navigator url='../evaluate/evaluate' hover-class='none'>
+				<view>
+					<image src="../image/icon/pj.png"></image>
+					<text>我的评价</text>
+				</view>
+				<image src="../image/icon/jtr.png"></image>
+			</navigator>
+		</view> -->
+		<view class="my-list-item shouquan">
+			<view>
+				<image src="../image/icon/kf2.png"></image>
+				<button open-type='contact'>联系客服</button>
+			</view>
+			<image src="../image/icon/jtr.png"></image>
+		</view>
+		<view class="my-list-item shouquan">
+			<view>
+				<image src="../image/icon/sz.png"></image>
+				<button bindtap="openSetting">授权设置</button>
+			</view>
+			<image src="../image/icon/jtr.png"></image>
+		</view>
+	</view>
+</view>
+<view class="index-bottom">
+	<view class="footer-border"></view>
+	<text class="index-bottom-text">技术支持</text>
+	<image src="../image/icon/footer-logo.png"></image>
+	<text>北京卯合卯科技发展有限公司</text>
+</view>

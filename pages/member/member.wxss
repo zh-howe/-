@@ -1,0 +1,46 @@
+/* pages/member/member.wxss */
+page{
+	background:#f5f5f5;
+}
+.member-prices,.member-vip{
+	background:#fff;
+	height:40px;
+	line-height: 40px;
+	padding:0 20rpx;
+	font-size: 15px;
+	color:#333;
+	border-bottom: solid 1px #eee;
+}
+.member-vip{
+	display: flex;
+	justify-content: space-between;
+}
+.member-prices text{
+	font-size: 16px;
+	color:#e53b25;
+}
+.member-vip text{
+	font-size: 13px;
+	color:#555;
+}
+.member-vip .active{
+	color:#e53b25;
+}
+.member-cont{
+	margin-top:10px;
+	font-size: 13px;
+	color:#666;
+	line-height: 24px;
+	padding:0 20rpx;
+}
+.member-cont text{
+	color:#444;
+	font-size: 14px;
+	padding:0 5px;
+	color:#e53b25;
+}
+.member-cont-title{
+	color:#333;
+	font-size: 14px;
+	margin-top:10px;
+}

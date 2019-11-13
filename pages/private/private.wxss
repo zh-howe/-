@@ -1,0 +1,76 @@
+/* pages/private/private.wxss */
+.private{
+	padding:0 20rpx;
+}
+.conserve{
+	position: fixed;
+	bottom:0;
+	left:0;
+	width:100%;
+	height:50px;
+	line-height: 50px;
+	background:#D63C34;
+	color:#fff;
+	text-align: center;
+}
+.private-title{
+	font-size: 15px;
+	color:#333;
+	display: inline-block;
+}
+.private-cont{
+	font-size: 14px;
+	color:#555;
+	display: inline-block;
+	max-width:40%;
+}
+.private-fu{
+	height:50px;
+	line-height: 50px;
+	border-bottom:solid 1px #eee;
+}
+.name{
+	
+}
+.color{
+	color:#FD4122;
+	padding-right:3px;
+	font-size: 14px;
+}
+input.private-cont{
+	width:40%;
+	height:30px;
+	padding:0 20rpx;
+	font-size: 12px;
+	margin-top:10px;
+}
+.tel,.name{
+	display: flex;
+}
+.tel{
+	display: flex;
+	flex-direction: row;
+}
+.tel button{
+	font-size: 12px;
+	color:#fff;
+	border:0;
+	background:#D63C34;
+	width:100px;
+	height:24px;
+	line-height: 24px;
+	margin-top:13px;
+	margin-left:10px;
+}
+.text-content{
+	margin-top:20px;
+}
+.text-tarea{
+	margin-top:5px;
+	font-size: 13px;
+	color:#666;
+	line-height: 18px;
+	width:670rpx;
+	border:solid 1px #eee;
+	padding:20rpx;
+}

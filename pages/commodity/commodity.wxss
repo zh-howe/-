@@ -1,0 +1,161 @@
+/* pages/commodity/commodity.wxss */
+/* 引入 */
+@import "../template/template.wxss";
+/* 引入end */
+.commodity-search{
+	display: flex;
+	max-height:100rpx;
+	padding:10rpx 0;
+}
+.commodity-search text{
+	color:#999;
+	font-size: 20rpx;
+}
+.commodity-search-edge{
+	width:100rpx;
+	height:60rpx;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+}
+.commodity-search-edge image{
+	width:36rpx;
+	min-height:36rpx;
+	margin:0 auto;
+}
+.commodity-search-center{
+	width:550rpx;
+	height:60rpx;
+	background:#f5f5f5;
+	display: flex;
+}
+.commodity-search-center image{
+	width:40rpx;
+	height:40rpx;
+	margin:10rpx;
+}
+.commodity-search-center input{
+	height:60rpx;
+	width:490rpx;
+	font-size: 12px;
+	color:#666;
+}
+.commodity-itemize{
+	position: fixed;
+	top:0;
+	left:;
+	z-index: 9000;
+}
+.commodity-itemize-bg{
+	position: fixed;
+	top:0;
+	left:;
+	z-index: 9000;
+	width:750rpx;
+	height:100%;
+	background:rgba(0,0,0,.5);
+}
+.commodity-itemize{
+	position: fixed;
+	left:-125px;
+	top:0;
+	z-index: 9999;
+	width:125px;
+	height:100%;
+	background:#fff;
+}
+.commodity-top-level-title{
+	display: flex;
+	justify-content: space-between;
+	width:105px;
+	padding:0 10px;
+	height:90rpx;
+	line-height: 90rpx;
+	border-bottom:solid 1px #eee;
+}
+.commodity-top-level-title text{
+	display: inline-block;
+	font-size: 14px;
+	color:#444;
+	font-weight: bold;
+}
+.commodity-top-level-title image{
+	width:15px;
+	height:30rpx;
+	margin-top:25rpx;
+}
+.commodity-second-level text{
+	display: inline-block;
+	width:97px;
+	padding:14rpx 14px;
+	font-size: 12px;
+	color:#999;
+}
+.active-color text{
+	color:#FD4122;
+}
+.commodity-sort{
+	display: flex;
+}
+.commodity-sort view{
+	width:20%;
+	height:45px;
+	line-height: 45px;
+	text-align: center;
+}
+.commodity-sort view:nth-child(3){
+	display: flex;
+	justify-content: center;
+}
+.commodity-sort text{
+	font-size: 14px;
+	color:#666;
+}
+.commodity-sort image{
+	width:11px;
+	height:11px;
+	margin-top:17px;
+}
+.commodity-sort .color{
+	color:#FD4122;
+}
+.commodity-list-v{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	padding:0 30rpx;
+}
+
+.commodity-footer{
+	height:40px;
+}
+.touch-bottom0{
+	height:40px;
+}
+.touch-bottom{
+	text-align: center;
+	height:25px;
+	line-height: 25px;
+}
+.touch-bottom  image{
+	width:25px;
+	height:25px;
+	margin-right:10px;
+}
+.touch-bottom text,.touch-bottom2 text{
+	color: #666;
+	font-size: 12px;
+}
+.touch-bottom2{
+	text-align: center;
+	height:40px;
+	line-height: 40px;
+}
+.commodity-list-zanwu{
+	text-align: center;
+}
+.commodity-list-zanwu image{
+	width:150px;
+	height:150px;
+	margin-top:50px;
+}

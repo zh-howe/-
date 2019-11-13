@@ -1,0 +1,92 @@
+<!--pages/state_page/state_page.wxml-->
+<view class="statePage-page">
+	<view class="statePage-title">
+		<!-- <view class='statePage-title-text'>
+			<view class="statePage-title-state">
+				<text>申请换货中</text>
+			</view>
+			<view class="statePage-title-date">
+				<text>时间剩余：1天8时10分</text>
+			</view>
+		</view> -->
+		<view class='statePage-title-text'>
+			<view class="statePage-title-state">
+				<!-- <text>退款中</text> -->
+				<text wx:if="{{odata.status == 1}}">待支付</text>
+				<text wx:if="{{odata.status == 2}}">待发货</text>
+				<text wx:if="{{odata.status == 3}}">待收货</text>
+				<text wx:if="{{odata.status == 4}}">待评价</text>
+				<text wx:if="{{odata.status == 5 && odata.r_status == 2}}">退款中</text>
+				<text wx:if="{{odata.status == 5 && odata.r_status == 1}}">已退款</text>
+				<text wx:if="{{odata.status == 6}}">交易成功</text>
+				<text wx:if="{{odata.status == 7}}">交易关闭</text>
+			</view>
+			<view class="statePage-title-date" wx:if="{{odata.status == 1 || odata.status == 3}}">
+				<text>时间剩余：1天8时10分</text>
+			</view>
+			<view class="statePage-title-date" wx:if="{{odata.status == 2}}">
+				<text>等待商家处理</text>
+			</view>
+			<view class="statePage-title-date" wx:if="{{odata.status == 4}}">
+				<text>等待卖家评价</text>
+			</view>
+			<view class="statePage-title-date" wx:if="{{odata.status == 5}}">
+				<text>期待您的下次光临</text>
+			</view>
+			<view class="statePage-title-date" wx:if="{{odata.status == 6}}">
+				<text>期待您的下次光临</text>
+			</view>
+			<view class="statePage-title-date" wx:if="{{odata.status == 7}}">
+				<text>订单已关闭</text>
+			</view>
+		</view>
+		<view class="statePage-title-img">
+			<image src="../image/icon/xiao.png"></image>
+		</view>
+	</view>
+	<view class="statePage-bg"></view>
+	<view class="statePage-cont">
+		<view class="statePage-news">订单详情</view>
+		<view class="state-cont" wx:for="{{odata.chil}}" wx:key="{{index}}">
+			<view class="state-cont-img">
+				<image src="{{item.img}}"></image>
+			</view>
+			<view class="state-cont-title">
+				<text>{{item.name}}</text>
+			</view>
+			<view class="state-cont-price">
+				<text>￥{{item.price}}</text>
+				<text>×{{item.num}}</text>
+			</view>
+		</view>
+		<view class="statePage-text" wx:if="{{odata.status == 5 && odata.r_status == 2}}">您已成功发起退款申请，请耐心等待商家处理</view>
+		<view class="statePage-refund" wx:if="{{odata.status == 5}}">
+			<text>退款原因：{{odata.r_remark}}</text>
+			<text>退款金额：￥{{odata.price}}</text>
+			<text>申请时间：{{odata.r_datetimes}}</text>
+			<text>订单编号：{{odata.ordernum}}</text>
+		</view>
+		<view class="statePage-refund" wx:if="{{odata.status == 2}}">
+			<text>支付时间：{{odata.payment}}</text>
+			<text>交易金额：￥{{odata.price}}</text>
+		</view>
+		<view class="statePage-refund" wx:if="{{odata.status == 6}}">
+			<text>支付时间：{{odata.payment}}</text>
+			<text>交易金额：￥{{odata.price}}</text>
+		</view>
+		<view class="statePage-bg"></view>
+		<view class="statePage-but">
+			<text wx:if="{{odata.status == 1}}" bindtap="buy2">去支付</text>
+			<text wx:if="{{odata.status == 3}}" bindtap="buy3">确认收货</text>
+			<text wx:if="{{odata.status == 4}}" bindtap="buy4">去评价</text>
+			<text wx:if="{{odata.status == 6}}" bindtap="buy5">申请退款</text>
+			<text wx:if="{{odata.status == 5 && odata.r_status == 2}}" bindtap="revoke">撤销申请</text>
+		</view>
+		<modal title="撤销申请" cancel="关闭" confirm="确定" hidden="{{mHidden}}" bindcancel="modelCancel" bindconfirm="changeModel">
+			确认撤销退款申请吗？
+		</modal>
+		<modal title="确认收货" cancel="关闭" confirm="确定" hidden="{{mHidden2}}" bindcancel="modelCancel2" bindconfirm="changeModel2">
+			确认收货吗？
+		</modal>
+	</view>
+</view>

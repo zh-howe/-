@@ -1,0 +1,79 @@
+<!--pages/shoping/shoping.wxml-->
+<import src="../template/template.wxml"/>
+<view class="shopping">
+	<view class="shop-show" wx:if="{{showHide}}">
+		<view class="shop-title">
+			<checkbox-group bindchange="quanxuan">
+				<label>
+					<checkbox checked="{{checked}}" />全选
+				</label>
+			</checkbox-group>
+			<view class="shop-title-text" bindtap="edit">
+				<text wx:if="{{!edit}}">编辑</text>
+				<text wx:if="{{edit}}">完成</text>
+			</view>
+		</view>
+		<view class="shop-list">
+			<checkbox-group bindchange="checkboxChange">
+				<view class="shop-list-item" wx:for="{{shopping}}" wx:key="{{index}}">
+					<view class="shop-list-label">
+						<label>
+							<checkbox value="{{item.id}}" checked="{{item.checked}}" data-id="{{index}}" bindtap="label"/>
+						</label>
+					</view>
+					<view class="shop-list-content">
+						<navigator url="../shoppage/shoppage?key={{item.id}}" hover-class='none'>
+							<image src="{{item.src}}"></image>
+						</navigator>
+						<view class="shop-list-rigth">
+							<navigator url="../shoppage/shoppage?key={{item.id}}" hover-class='none'><text>{{item.title}}</text></navigator>
+							<view class="shop-list-nr">
+								<text>￥{{item.price}}</text>
+								<view class="wares-num">
+									<text bindtap="subClick" data-id="{{index}}">-</text>
+									<input type="number" bindinput="shopNum" value="{{item.shopNumber}}" data-id="{{index}}" />
+									<text bindtap="addClick" data-id="{{index}}">+</text>
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
+			</checkbox-group>
+		</view>
+		<view class="shop-bottom {{active}}">
+			<view class="shop-bottom-price" wx:if="{{!edit}}">
+				总计：<text>￥{{num}}</text>
+			</view>
+			<view class="buy-or-del">
+				<text wx:if="{{!edit}}" bindtap="buy">结算</text>
+				<text wx:if="{{edit}}" bindtap="del">删除</text>
+			</view>
+		</view>
+	</view>
+	<view class="shop-hide" wx:if="{{!showHide}}">
+		<image src="../image/icon/shopping.png"></image>
+		<view class="shopgg" bindtap="tiaoz">
+			去逛逛
+		</view>
+		<view class="shop-tuij">
+			<text>为您推荐</text>
+		</view>
+		<view class="shop-hide-list">
+			<view class="shopCase" wx:for="{{recommend}}" wx:key="{{index}}">
+				<view class="vipshop" wx:if="{{item.isvip == 1}}">
+					<text>特惠</text>
+				</view>
+				<navigator url="../shoppage/shoppage?key={{item.id}}" hover-class='none'>
+					<image src="{{item.src}}"></image>
+					<text class="shopCase-title">{{item.title}}</text>
+				</navigator>
+				<view class="shopCase-bottom">
+					<text class="shopCase-price">￥{{item.price}}</text>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+<view>
+	
+</view>

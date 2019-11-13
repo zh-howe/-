@@ -1,0 +1,144 @@
+/* pages/coupon/coupon.wxss */
+.coupon{
+	padding-bottom:40rpx;
+}
+.coupon-state{
+	width:750rpx;
+	height:40px;
+	line-height: 40px;
+	display: flex;
+	position: relative;
+}
+.coupon-state view{
+	width:25%;
+	text-align: center;
+	font-size: 14px;
+	color:#444;
+}
+.bg-color{
+	position: absolute;
+	bottom:0;
+	width:25%;
+	height:2px;
+	background:#D63C34;
+	transition: all .5s;
+	-moz-transition: all .5s;
+	-webkit-transition: all .5s;
+	-o-transition: all .5s;
+}
+.coupon-cont{
+	padding:0 40rpx;
+}
+.coupon-item{
+	display: flex;
+	position: relative;
+	overflow: hidden;
+	margin-top:15px;
+}
+.coupon-item-l{
+	width:500rpx;
+	height:200rpx;
+	background:#f76864;
+}
+.coupon-item-r{
+	width:166rpx;
+	height:200rpx;
+	margin-left:4rpx;
+	background:#fb4d44;
+}
+.coupon-item-l2{
+	background:#ccc;
+}
+.coupon-item-r2{
+	background:#aaa;
+}
+.quan{
+	position: absolute;
+	bottom:-30rpx;
+	right:83rpx;
+	width:100rpx;
+	height:100rpx;
+	font-size: 30px;
+	border:solid 3px #ccc;
+	opacity: .3;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 100rpx;
+	color:#ccc;
+	z-index: 999;
+}
+.coupon-item-border{
+	width:460rpx;
+	height:160rpx;
+	position: absolute;
+	left:20rpx;
+	top:20rpx;
+	border:solid 1px #ffdba5;
+}
+.coupon-item-l2 .coupon-item-border{
+	border:solid 1px #fff;
+}
+.coupon-item-cont{
+	width:420rpx;
+	height:120rpx;
+	margin:40rpx;
+}
+.coupon-item-cont text{
+	color:#ffdba5;
+}
+.coupon-item-l2 .coupon-item-cont text{
+	color:#fff;
+}
+.coupon-item-cont{
+	display: flex;
+}
+.coupon-item-cont-l{
+	width:140rpx;
+	height:120rpx;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+.coupon-item-cont-l text:nth-child(1){
+	font-size: 18px;
+	padding-top:10rpx;
+	font-weight: 600;
+}
+.coupon-item-cont-l text:nth-child(1) text{
+	font-size: 14px;
+	font-weight: 500;
+	padding-top:0;
+}
+.coupon-item-cont-l text:nth-child(2){
+	font-size: 12px;
+	padding-top:10rpx;
+}
+.coupon-item-cont-r{
+	width:260rpx;
+	height:120rpx;
+	margin-left:20rpx;
+	display: flex;
+	flex-direction: column;
+}
+.coupon-item-cont-r text:nth-child(1){
+	font-size: 14px;
+}
+.coupon-item-cont-r text:nth-child(2){
+	font-size: 11px;
+	padding-top:10rpx;
+}
+.coupon-item-cont-r text:nth-child(3){
+	font-size: 12px;
+	padding-top:10rpx;
+}
+
+.coupon-item-r{
+	text-align: center;
+}
+.coupon-item-r text{
+	color:#fff;
+	font-size: 18px;
+	display: inline-block;
+	height:100rpx;
+	margin-top:50rpx;
+}

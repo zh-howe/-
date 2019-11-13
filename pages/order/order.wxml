@@ -1,0 +1,84 @@
+<!--pages/order/order.wxml-->
+<view class="order-page">
+	<view class="order-mode">
+		配送方式：<text>商家配送</text>
+	</view>
+	<view class="order-choice" bindtap="orderAddress" wx:if="{{!address_code}}">
+		<text>请选择收货地址</text>
+		<image src="../image/icon/jtr.png"></image>
+	</view>
+	<view class="order-address" bindtap="orderAddress" wx:if="{{address_code}}">
+		<image src="../image/icon/address.png"></image>
+		<view class="order-cont">
+			<view>
+				<text>{{datas.shopaddr.data.name}}</text>
+				<text>{{datas.shopaddr.data.tel}}</text>
+			</view>
+			<view class="order-address-cont">
+				{{datas.shopaddr.data.address}}{{datas.shopaddr.data.adddetail}}({{datas.shopaddr.data.zipcode}})
+			</view>
+		</view>
+		<image src="../image/icon/jtr.png"></image>
+	</view>
+	
+	<view class="order-border"></view>
+	
+	<view class="goods-title">
+		<image src="../image/icon/qd.png"></image>
+		<text>购物清单</text>
+	</view>
+	<view class="order-goods" wx:for="{{datas.data}}" wx:key="{{index}}">
+		<image src="{{item.src}}"></image>
+		<view class="order-goods-cont">
+			<view class="order-goods-title">{{item.title}}</view>
+			<view class="order-goods-preace">
+				<text class="order-goods-preace-left">￥{{item.price}}</text>
+				<text class="order-goods-preace-righr">购买数量：{{item.num}}</text>
+			</view>
+		</view>
+	</view>
+	<view class="order-message">
+		<text>买家留言：</text>
+		<input type="text" placeholder="给卖家的留言:(50字以内)" bindinput="message" />
+	</view>
+	
+	<view class="order-border"></view>
+	
+	<view class="order-coupon">
+		<text>优惠券：</text>
+		<picker bindchange="type" range="{{coupon}}" value="{{index}}">
+			<view class="picker private-fu">
+			  <text class="private-cont">{{coupon2}}</text>
+			</view>
+		</picker>
+	</view>
+	<view class="order-border"></view>
+	<view class="order-zuizhong">
+		<view>
+			<text>商品金额</text>
+			<text>￥{{couponData.price}}</text>
+		</view>
+		<view>
+			<text>优惠抵扣</text>
+			<text wx:if="{{couponData.coupon}}">-￥{{couponData.coupon}}</text>
+			<text wx:else>{{couponData.coupon}}</text>
+		</view>
+		<view>
+			<text>运费</text>
+			<text wx:if="{{couponData.freight_price == 10}}">+￥{{couponData.freight_price}}</text>
+			<text wx:else>免运费</text>
+		</view>
+		<view>
+			<text>实际支付</text>
+			<text>￥{{couponData.actual}}</text>
+		</view>
+	</view>
+	<view class="order-footer">
+		<view class="order-footer-left">
+			合计：<text>￥{{couponData.actual}}</text>
+		</view>
+		<view class="order-footer-right" bindtap="payment">
+			提交订单
+		</view>
+	</view>
+</view>

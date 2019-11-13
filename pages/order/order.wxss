@@ -1,0 +1,252 @@
+/* pages/order/order.wxss */
+.order-page{
+	padding-bottom:80px;
+}
+.order-mode{
+	font-size: 13px;
+	color:#666;
+	padding:20rpx;
+	background:#f5f5f5;
+}
+.order-mode text{
+	color:#f0bc09;
+}
+.order-border{
+	height:8px;
+	background:#eee;
+}
+.order-choice{
+	display: flex;
+	justify-content: space-between;
+	width:710rpx;
+	padding:0 20rpx;
+	height:80rpx;
+	line-height: 80rpx;
+	border-bottom:solid 1px #eee;
+}
+.order-choice text{
+	font-size: 12px;
+	color:#333;
+}
+.order-choice image{
+	width:30rpx;
+	height:30rpx;
+	margin-top:25rpx;
+}
+.order-address{
+	display: flex;
+	padding:15px 20rpx;
+	color:#444;
+}
+.order-address image:nth-child(1){
+	width:100rpx;
+	height:100rpx;
+}
+.order-cont{
+	width:520rpx;
+	height:100rpx;
+	font-size: 14px;
+	padding:0 20rpx;
+}
+.order-cont text{
+	color:#444;
+}
+.order-cont view:nth-child(1){
+	display: flex;
+	justify-content: space-between;
+	margin-bottom:5px;
+}
+.order-address-cont{
+	widht:100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow:ellipsis;
+}
+.order-address image:nth-child(3){
+	width:30rpx;
+	height:30rpx;
+	margin-top:35rpx;
+}
+.order-goods{
+	display: flex;
+	padding:20rpx;
+	border-bottom:solid 1px #eee;
+}
+.order-goods image{
+	width:200rpx;
+	height:200rpx;
+}
+.order-goods-cont{
+	width:494rpx;
+	padding-left:16rpx;
+	position: relative;
+}
+.order-goods-title{
+	font-size: 14px;
+	color:#444;
+	height:28px;
+}
+.order-goods-style{
+	font-size: 12px;
+	height:24px;
+	color:#888;
+}
+.order-goods-preace{
+	position: absolute;
+	bottom:0;
+	left:0;
+	width:484rpx;
+	padding-left:16rpx;
+	display: flex;
+	justify-content: space-between;
+}
+.order-goods-preace-left{
+	color:#FD4122;
+	font-size: 13px;
+}
+.order-goods-preace-righr{
+	font-size: 12px;
+	color:#444;
+}
+.goods-title{
+	height:40px;
+	line-height: 40px;
+	border-bottom:solid 1px #eee;
+	display: flex;
+	width:710rpx;
+	padding:0 20rpx;
+}
+.goods-title image{
+	width:15px;
+	height:15px;
+	margin-top:12px;
+	margin-right:15px;
+}
+.goods-title text{
+	font-size: 15px;
+	color:#444;
+}
+
+.order-message{
+	height:40px;
+	line-height: 40px;
+	display: flex;
+	width:710rpx;
+	padding:0 20rpx;
+	border-bottom:solid 1px #eee;
+}
+.order-message text{
+	font-size: 14px;
+	color:#555;
+	width:200rpx;
+}
+.order-message input{
+	font-size: 12px;
+	height:40px;
+	line-height:40px;
+	width:550rpx;
+}
+.order-coupon{
+	display: flex;
+	width:710rpx;
+	padding:0 20rpx;
+	height:40px;
+	line-height: 40px;
+}
+.order-coupon>text{
+	font-size: 15px;
+}
+.private-cont{
+	margin-left:10px;
+	color:#666;
+	font-size: 12px;
+}
+.birthday2{
+	background:rgba(0,0,0,.7);
+	position: fixed;
+	top:0;
+	left: 0;
+	width:100%;
+	height:100%;
+	z-index: 900;
+}
+.birthday{
+	position: fixed;
+	bottom:0;
+	left:0;
+	z-index: 999;
+	width:100%;
+	height:250px;
+	text-align: center;
+	background: #fff;
+}
+.birthday-decision{
+	display: flex;
+	justify-content: space-between;
+	padding:0 20rpx;
+	height:50px;
+	line-height: 50px;
+	margin-bottom:20px;
+}
+.birthday-decision text{
+	font-size: 15px;
+}
+.birthday-decision text:nth-child(2){
+	color:#00B26A;
+}
+.birthday2{
+	background:rgba(0,0,0,.7);
+	position: fixed;
+	top:0;
+	left: 0;
+	width:100%;
+	height:100%;
+	z-index: 900;
+}
+
+
+.order-footer{
+	position: fixed;
+	bottom:0;
+	right:0;
+	width:750rpx;
+	height:45px;
+	line-height: 45px;
+	display: flex;
+	justify-content: flex-end;
+	background:#fff;
+	border-top:solid 1px #eee;
+	z-index: 999;
+}
+.order-footer-left{
+	font-size: 14px;
+	color:#333;
+	margin-right:20px;
+}
+.order-footer-left text{
+	font-size: 16px;
+	color:#FD4122;
+}
+.order-footer-right{
+	color:#fff;
+	padding:0 20px;
+	font-size: 15px;
+	background: -webkit-linear-gradient(left top, #ff9f38 , #fd430a); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(bottom right, #ff9f38, #fd430a); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(bottom right, #ff9f38, #fd430a); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to bottom right, #ff9f38 , #fd430a); /* 标准的语法（必须放在最后） */
+}
+
+.order-zuizhong{
+	padding:10rpx 20rpx;
+}
+.order-zuizhong view{
+	display: flex;
+	justify-content: space-between;
+	height:30px;
+	line-height: 30px;
+}
+.order-zuizhong text{
+	font-size: 13px;
+	color:#555;
+}

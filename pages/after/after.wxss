@@ -1,0 +1,89 @@
+/* pages/after/after.wxss */
+page{
+	background:#f5f5f5;
+}
+.after-state{
+	background:#fff;
+	padding-bottom: 20rpx;
+}
+.after-state radio-group{
+	padding:0 20rpx;
+}
+.after-state radio{
+	margin-right:20rpx;
+	font-size: 14px;
+}
+.after-state radio .wx-radio-input{
+	width: 34rpx;
+	height: 34rpx;
+	border-radius: 50%;
+}
+.after-state radio .wx-radio-input.wx-radio-input-checked::before {
+    width: 34rpx;
+    height: 34rpx;
+    border-radius: 50%;
+    line-height: 34rpx;
+    text-align: center;
+    font-size: 30rpx;
+    transform: translate(-50%, -50%) scale(1);
+}
+.after-cont button{
+	width:300rpx;
+	height:80rpx;
+	line-height: 80rpx;
+	margin-top:40rpx;
+	background:#587bff;
+	color:#fff;
+	font-size: 15px;
+}
+.after-cont-img{
+	width:720rpx;
+	height:120rpx;
+	display: flex;
+	padding:0 15rpx;
+	background:#fff;
+	padding-bottom: 20rpx;
+}
+.after-cont-img image{
+	width:120rpx;
+	height:120rpx;
+	margin:0 12rpx;
+}
+.after-cont-img>view{
+	width:144rpx;
+	height:120rpx;
+	position: relative;
+	display: flex;
+}
+.after-cont-img .after-img-del{
+	width:40rpx;
+	height:40rpx;
+	position: absolute;
+	top:-20rpx;
+	right:-20rpx;
+}
+.after-text{
+	background:#fff;
+	padding-bottom: 20rpx;
+}
+.after-text textarea,.after-text text{
+	display: inline-block;
+	border:solid 1px #ddd;
+	width:690rpx;
+	margin:0 20rpx;
+	padding:10rpx;
+	font-size: 14px;
+	color:#555;
+	height:200rpx;
+	background:#fff;
+}
+.after-title{
+	margin-top:20rpx;
+	padding:0 20rpx;
+	font-size: 15px;
+	color:#333;
+	height:80rpx;
+	line-height: 80rpx;
+	background:#fff;
+	position: relative;
+}

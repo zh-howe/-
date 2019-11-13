@@ -1,0 +1,23 @@
+<view class="search-page">
+	<import src="../template/template.wxml"/>
+	<view class="search-goods">
+		<template is="shopCase-v" data="{{shop:shopCase}}"></template>
+	</view>
+	<view class="commodity-list-zanwu" wx:if="{{!isdata}}">
+		<image src="../image/icon/zanwu.png"></image>
+	</view>
+	
+	<view class="commodity-footer">
+		<view class="touch-bottom0" wx:if="{{!touch && !touch2}}"></view>
+		<view class="touch-bottom" wx:if="{{touch}}">
+			<image src="../image/icon/shuaxin.png" animation="{{rotate}}"></image>
+			<text>正在加载...</text>
+		</view>
+		<view class="touch-bottom2" wx:if="{{!touch && touch2}}">
+			<text>暂无更多数据</text>
+		</view>
+	</view>
+	<view class="shopCollect">
+		<template is="shopCart" data="{{data:shopClickData,shopState:shopState,num:shopNumber}}"></template>
+	</view>
+</view>

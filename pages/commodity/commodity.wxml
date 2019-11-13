@@ -1,0 +1,77 @@
+<view class="container">
+	<import src="../template/template.wxml"/>
+	<!-- 搜索 -->
+	<view class="commodity-search">
+		<view class="commodity-search-edge" bindtap="commodityItemize">
+			<image src="../image/icon/commodity00.png"></image>
+			<text>分类</text>
+		</view>
+		<view class="commodity-search-center">
+			<image src="../image/icon/search.png"></image>
+			<input type="text" placeholder="请输入搜索的商品" bindconfirm="searchOver" confirm-type="search" placeholder-style="color:#999;font-size:12px;" height="60rpx" />
+		</view>
+		<view class="commodity-search-edge" bindtap="commodityListState">
+			<image src="{{state ? stateSrc[0] : stateSrc[1]}}"></image>
+			<text>列表</text>
+		</view>
+	</view>
+	<!-- 搜索 end -->
+	<!-- 排序 -->
+	<view class="commodity-sort">
+		<view wx:for="{{listStyle}}" wx:key="{{index}}" bindtap="navSort" data-id='{{index}}'>
+			<text class="{{activeNav == index ? 'color':''}}">{{item}}</text>
+			<image wx:if="{{index == 2 && imgcode2}}" src="{{imgcode?'../image/icon/order.png':'../image/icon/order2.png'}}"></image>
+		</view>
+	</view>
+	<!-- 排序 end -->
+	<!-- 商品列表 -->
+	<view class="commodity-list">
+		<view class="commodity-list-v" wx:if="{{state}}">
+			<template is="shopCase-v" data="{{shop:shopCase}}"></template>
+		</view>
+		<view class="commodity-list-h" wx:if="{{!state}}">
+			<template is="shopCase-h" data="{{shop:shopCase}}"></template>
+		</view>
+		<view class="commodity-list-zanwu" wx:if="{{!isdata}}">
+			<image src="../image/icon/zanwu.png"></image>
+		</view>
+	</view>
+	<!-- 商品列表 end -->
+	<!-- 底部 -->
+	<view class="commodity-footer">
+		<view class="touch-bottom0" wx:if="{{!touch && !touch2}}"></view>
+		<view class="touch-bottom" wx:if="{{touch}}">
+			<image src="../image/icon/shuaxin.png" animation="{{rotate}}"></image>
+			<text>正在加载...</text>
+		</view>
+		<view class="touch-bottom2" wx:if="{{!touch && touch2}}">
+			<text>暂无更多数据</text>
+		</view>
+	</view>
+	<!-- 底部end -->
+	<!-- 加入购物车 -->
+	<view class="shopCollect">
+		<template is="shopCart" data="{{data:shopClickData,shopState:shopState,num:shopNumber}}"></template>
+	</view>
+	<!-- 加入购物车end -->
+	<!-- 商品分类 -->
+	<view class="commodity-itemize-bg" wx:if="{{itemize}}" bindtap="commodityTopLevel"></view>
+	<scroll-view scroll-y animation="{{lAnimate}}" class="commodity-itemize">
+		<view class="commodity-itemize-scroll">
+			<view class="commodity-top-level-title {{active == 0 ? 'active-color':''}}" bindtap="allcommodity">
+				<text>全部商品</text>
+			</view>
+			<view class="commodity-top-level" wx:for="{{listData}}" wx:key="{{index}}" >
+				<view class="commodity-top-level-title">
+					<text>{{item.title}}</text>
+					<image src="../image/icon/jt.png"></image>
+				</view>
+				<view wx:for="{{item.chil}}" wx:key="{{index}}" class="commodity-second-level {{active == item.id ? 'active-color':''}}" data-id="{{item.id}}" bindtap="commodityActive">
+					<text>{{item.title}}</text>
+				</view>
+			</view>
+		</view>
+	</scroll-view>
+	<!-- 商品分类 end -->
+	
+</view>

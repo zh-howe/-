@@ -1,0 +1,16 @@
+<!--pages/member/member.wxml-->
+<view class="member-page">
+	<view class="member-prices">累计消费：<text>￥{{datas.amount}}</text></view>
+	<view class="member-vip">
+		<view>
+			我的会员：<text wx:if="{{datas.member == 2}}">条件未满足</text><text wx:else class="active">永久VIP</text>
+		</view>
+		
+	</view>
+	<view class="member-cont">
+		<view class="member-cont-title">一、会员有什么用处？</view>
+		<view>会员用户可在会员专享区购买优惠商品。</view>
+		<view class="member-cont-title">二、如何成为会员？</view>
+		<view>累计消费满<text>￥999</text>，赠送永久会员</view>
+	</view>
+</view>

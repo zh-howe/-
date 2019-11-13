@@ -1,0 +1,62 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/my/my",
+    "pages/commodity/commodity",
+    "pages/commentary/commentary",
+    "pages/shopping/shopping",
+    "pages/member/member",
+    "pages/state/state",
+    "pages/state_page/state_page",
+    "pages/evaluate/evaluate",
+    "pages/after/after",
+    "pages/coupon/coupon",
+    "pages/address/address",
+    "pages/order/order",
+    "pages/address2/address2",
+    "pages/search/search",
+    "pages/private/private",
+    "pages/modify/modify",
+    "pages/shoppage/shoppage",
+    "pages/template/template"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "卯合卯微商城",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "pages/image/icon/index.png",
+        "selectedIconPath": "pages/image/icon/index2.png"
+      },
+      {
+        "pagePath": "pages/commodity/commodity",
+        "text": "分类",
+        "iconPath": "pages/image/icon/sort.png",
+        "selectedIconPath": "pages/image/icon/sort2.png"
+      },
+      {
+        "pagePath": "pages/shopping/shopping",
+        "text": "购物车",
+        "iconPath": "pages/image/icon/shoping.png",
+        "selectedIconPath": "pages/image/icon/shoping2.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "pages/image/icon/my.png",
+        "selectedIconPath": "pages/image/icon/my2.png"
+      }
+    ],
+    "color": "#666",
+    "selectedColor": "#ff6b00",
+    "backgroundColor": "#fff",
+    "borderStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}

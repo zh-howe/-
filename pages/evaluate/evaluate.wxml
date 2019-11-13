@@ -1,0 +1,39 @@
+<!--pages/evaluate/evaluate.wxml-->
+<view class="evaluate-page">
+	<form bindsubmit="bindFormSubmit">
+		<view wx:for="{{odata.chil}}"  wx:key="{{index}}">
+			<view class="state-cont">
+				<view class="state-cont-img">
+					<image src="{{item.img}}"></image>
+				</view>
+				<view class="state-cont-title">
+					<text>{{item.name}}</text>
+				</view>
+				<view class="state-cont-price">
+					<text>￥{{item.price}}</text>
+					<text>×{{item.num}}</text>
+				</view>
+			</view>
+			<view class="evaluate-text">
+				<view class="evaluate-text-title">
+					<text>请输入评价：</text>
+				</view>
+				<view class="evaluate-form">
+					<textarea name="textarea" wx:if="{{mHidden}}" value="{{val}}"></textarea>
+					<text wx:else>{{val}}</text>
+				</view>
+				<view class="evaluate-img">
+					<text>评分：</text>
+					<view>
+						<image wx:for="{{starMap}}" wx:for-item="item2" wx:for-index="index2" wx:key="{{index2}}" src="{{oindex[index]>=item2.id?'../image/icon/xing2.png':'../image/icon/xing.png'}}" data-id2="{{index2}}" data-id="{{index}}" bindtap="oimg"></image>
+					</view>
+					<text class="evaluate-img-txt">{{starMap[oindex[index]].name}}</text>
+				</view>
+			</view>
+		</view>
+		<button form-type="submit">提交</button>
+		<modal title="提交评论" cancel="关闭" confirm="确定" hidden="{{mHidden}}" bindcancel="modelCancel" bindconfirm="changeModel">
+			确认提交评论吗？
+		</modal>
+	</form>
+</view>

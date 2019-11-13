@@ -1,0 +1,145 @@
+<!--index.wxml-->
+<view class="container">
+	
+	<import src="../template/template.wxml"/>
+	
+	<!-- 搜索 -->
+	<template is="search"/>
+	<!-- 搜索 end -->
+	<!-- banner -->
+  <view class="banner-swiper">
+    <swiper indicator-dots="true" indicator-active-color="#ffffff" circular="true" current="0" bindchange="bannerSilde">
+      <swiper-item wx:for="{{banner}}" wx:key="{{index}}">
+        <navigator url='../shoppage/shoppage?key={{item.id}}' hover-class='none'>
+          <image src="{{item.src}}"></image>
+        </navigator>
+      </swiper-item>
+    </swiper>
+    <view class="banner-index">
+      <text>{{banner_index}}/{{banner.length}}</text>
+    </view>
+  </view>
+  <!-- banner end -->
+	<!-- 每日热讯 -->
+  <view class="day-new">
+    <image src="../image/icon/news.png"></image>
+    <view class="scroll-news">
+      <swiper autoplay="true" interval="5000" circular="true" vertical="true">
+        <swiper-item wx:for="{{news}}" wx:key="{{index}}">
+          <text>{{item.content}}</text>
+        </swiper-item>
+      </swiper>
+    </view>
+  </view>
+	<!-- 每日热讯 end -->
+  <!-- 商品列表 -->
+  <view class="shop-nav">
+   <!-- <view class="shop-nav-item">
+      <image src='../image/icon/zs04.png'></image>
+      <view class="shop-nav-text">
+        <text>精品推荐</text>
+        <text>满意收获 我的承诺</text>
+      </view>
+    </view>
+    <view class="shop-nav-item">
+      <image src='../image/icon/zs02.png'></image>
+      <view class="shop-nav-text">
+        <text>限时优惠</text>
+        <text>品质为先 以量取胜</text>
+      </view>
+    </view> -->
+    <view class="shop-nav-item">
+		<navigator url="../private/private" hover-class="none">
+		<view class="shop-nav-img"></view>
+		<view class="shop-nav-text">
+			<text>私人订制</text>
+			<text>不同需要 共同选择</text>
+		</view>
+		</navigator>	
+    </view>
+    <view class="shop-nav-item" bindtap="listVip">
+		<view class="shop-nav-img2"></view>
+		<view class="shop-nav-text">
+		  <text>会员专区</text>
+		  <text>极致精选 时尚专线</text>
+		</view>
+    </view>
+  </view>
+	<!-- 商品列表 end -->
+	
+	<template is="bgColor"/>
+	
+	<!-- 限时抢购 -->
+	<view class="discount">
+		<view class="shop-title">
+			<text>限时抢购</text>
+			<view bindtap="listXianshi">查看更多</view>
+		</view>
+		<scroll-view scroll-x class="discount-scroll" enable-flex="true">
+			<view class="scroll-view">
+				<view class="discount-shop" wx:for="{{shopCase[0]}}" wx:key="{{index}}">
+					<navigator url='../shoppage/shoppage?key={{item.id}}' hover-class='none'>
+						<image src="{{item.src}}" style="width:200rpx;height:200rpx;"></image>
+						<view class="discount-text">
+							<text class="discount-shop-name">{{item.title}}</text>
+							<text class="price">￥{{item.oprice}}</text>
+							<text class="discount-price">￥{{item.price}}</text>
+						</view>
+					</navigator>
+				</view>
+				<view class="scroll-padding-right" style="width:10px;height:10px;margin-left:-10rpx;">
+					<text style="color:#F5F5F5;">.</text>
+				</view>
+			</view>
+		</scroll-view>
+	</view>
+	<!-- 限时抢购 end -->
+	<!-- 会员特价 -->
+	<view class="discountVip">
+		<view class="shop-title">
+			<text>会员特价</text>
+			<view bindtap="listVip">查看更多</view>
+		</view>
+		<view class="discountVip-shop">
+			<template is="shopCase-v" data="{{shop:shopCase[1]}}"></template>
+		</view>
+	</view>
+	<!-- 会员特价 end -->
+	
+	<template is="bgColor"/>
+	
+	<!-- 精彩推荐 -->
+	<view class="recommend">
+		<view class="shop-title">
+			<text>精彩推荐</text>
+			<view bindtap="listTuijian">查看更多</view>
+		</view>
+		<view class="recommend-shop">
+			<template is="shopCase-h" data="{{shop:shopCase[2]}}"></template>
+		</view>
+	</view>
+	<!-- 精彩推荐 end -->
+	
+	<view class="index-bottom">
+		<view class="footer-border"></view>
+		<text class="index-bottom-text">技术支持</text>
+		<image src="../image/icon/footer-logo.png"></image>
+		<text>北京卯合卯科技发展有限公司</text>
+	</view>
+	
+	<!-- 加入购物车 -->
+	<view class="shopCollect">
+		<template is="shopCart" data="{{data:shopClickData,shopState:shopState,num:shopNumber}}"></template>
+	</view>
+	<!-- 加入购物车 end -->
+</view>
+
+
+<!-- 商品列表头部 -->
+<!-- <template name="msgItem">
+	<view class="shop-title">
+		<text>{{name}}</text>
+		<view >查看更多</view>
+	</view>
+</template> -->
+<!-- 商品列表头部 end -->

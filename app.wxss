@@ -1,0 +1,14 @@
+/**app.wxss**/
+text{
+  font-family: "微软雅黑";
+  color:#333;
+}
+image{
+	vertical-align: bottom;
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+} 

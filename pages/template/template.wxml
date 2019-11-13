@@ -1,0 +1,100 @@
+<!-- 灰色隔栏 #f5f5f5 10px -->
+<wxs module="filters" src="../../utils/filters.wxs"></wxs>
+<template name="bgColor">
+	<view class="bgColor" catchtap="hideModal"></view>
+</template>
+<!-- end -->
+
+<!-- 头部搜索 -->
+<template name="search">
+	<view class="search">
+	    <view class="search-input">
+	      <image src='../image/icon/search.png'></image>
+	      <input type='text' placeholder="请输入搜索的商品" bindconfirm="searchOver" confirm-type="search" placeholder-style="color:#999;font-size:14px;" indicator-active-color="#ffffff"></input>
+	    </view>
+	</view>
+</template>
+<!-- 头部搜索 end -->
+
+<!-- 商品栏竖 -->
+<template name="shopCase-v">
+	<view class="shopCase" wx:for="{{shop}}" wx:key="{{index}}">
+		<view class="vipshop" wx:if="{{item.isvip == 1}}">
+			<text>特惠</text>
+		</view>
+		<navigator url="../shoppage/shoppage?key={{item.id}}" hover-class='none'>
+			<image src="{{item.src}}"></image>
+			<text class="shopCase-title">{{item.title}}</text>
+		</navigator>
+		<view class="shopCase-bottom">
+			<text class="shopCase-price">￥{{item.oprice}}</text>
+			<image src="../image/icon/shoping3.png" bindtap="shopVertical" data-id='{{index}}'></image>
+		</view>
+	</view>
+</template>
+<!-- 商品栏竖 end -->
+
+<!-- 商品栏横 -->
+<template name="shopCase-h">
+	<view class="shopCaseSecond" wx:for="{{shop}}" wx:key="{{index}}">
+		<view class="vipshop" wx:if="{{item.isvip == 1}}">
+			<text>特惠</text>
+		</view>
+		<navigator url='../shoppage/shoppage?key={{item.id}}' hover-class='none'>
+			<image src="{{item.src}}"></image>
+		</navigator>
+		<view class="shopCaseSecond-right">
+			<navigator url='../shoppage/shoppage?key={{item.id}}' hover-class='none'>
+				<text class="shopCaseSecond-title">{{item.title}}</text>
+			</navigator>
+			<view class="shopCaseSecond-label">
+				<text wx:for="{{item.label}}" wx:key="{{index}}">{{item}}</text>
+			</view>
+			<view class="shopCaseSecond-bottom">
+				<text class="shopCaseSecond-price">￥{{item.oprice}}</text>
+				<image src="../image/icon/shoping3.png" bindtap="shopHorizontal" data-id='{{index}}'></image>
+			</view>
+		</view>
+	</view>
+</template>
+<!-- 商品栏横 end -->
+
+<!-- 弹框 加入购物车 -->
+<template name="shopCart">
+	<view class="shopCart-modal" wx:if="{{shopState.modelOption}}" animation="{{shopState.rAnimate}}" bindtap="hideShop">
+	</view>
+	<view class="shopCart" animation="{{shopState.lAnimate}}">
+		<view class="shopCart-describe">
+			<view class="shopCart-describe-title">
+				<image src="{{data.src}}"></image>
+				<view class="shopCart-describe-details">
+					<text class="shopCart-name">{{data.title}}</text>
+					<text class="shopCart-price">￥{{data.oprice}}</text>
+					<text class="shopCart-stock">库存{{data.stock}}个</text>
+				</view>
+			</view>
+			<view class="shopCart-describe-num">
+				<text class="shopCart-describe-number">购买数量：</text>
+				<template is="waresNum" data="{{num:num,stock:data.stock}}"></template>
+			</view>
+		</view>
+		<view class="shopCart-collect">
+			<view class="totalPrice">
+				￥{{filters.toFix(data.oprice * num)}}
+			</view>
+			<view class="add-to-cart" bindtap="addToCart">加入购物车</view>
+		</view>
+	</view>
+</template>
+<!-- 弹框 加入购物车 end -->
+
+<!-- 商品加减 -->
+<template name="waresNum">
+	<view class="wares-num">
+		<text bindtap="subClick">-</text>
+		<input type="number" bindinput="shopNum" value="{{num}}" />
+		<text bindtap="addClick">+</text>
+	</view>
+</template>
+<!-- 商品加减 end -->
+

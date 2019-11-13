@@ -1,0 +1,121 @@
+<view class="shop-page">
+	<import src="../template/template.wxml"/>
+	<wxs module="filters" src="../../utils/filters.wxs"></wxs>
+	<view class="shoppage-swiper">
+	  <swiper indicator-dots="true" indicator-active-color="#ffffff" circular="true" current="0" bindchange="shopSilde">
+	    <swiper-item wx:for="{{pageData.img}}" wx:key="{{index}}">
+	        <image src="{{item}}"></image>
+	    </swiper-item>
+	  </swiper>
+	  <view class="banner-index">
+	    <text>{{banner_index}}/{{pageData.img.length}}</text>
+	  </view>
+	</view>
+	<view class="shop-content">
+		<view class="shop-price">
+			<view>
+				<text class="shop-price-left">￥{{pageData.oprice}}</text>
+				<text class="shop-price-yuanj" wx:if="{{pageData.limited_status == 1}}">原价：{{pageData.price}}</text>
+			</view>
+			<text class="shop-price-right">销量：{{pageData.salesVolume}}</text>
+		</view>
+		<view class="shop-title">
+			<text>{{pageData.name}}</text>
+		</view>
+	</view> 
+	<template is="bgColor"/>
+	<view class="good-coupon">
+		<view class="good-coupon-text good-coupon-text1"><text>优惠券</text></view>
+		<view class="good-coupons">
+			<view class="coupon-view" wx:for="{{pageData.coupon}}" wx:key="{{index}}">
+				<text>{{item.name}}</text>
+			</view>
+			<text wx:if="{{pageData.coupon.length <= 0}}">暂无</text>
+		</view>
+		<view class="good-coupon-text good-coupon-text2">
+			<navigator url='../coupon/coupon' hover-class='none'>
+				<text>更多 ></text>
+			</navigator>
+		</view>
+	</view>
+	
+	<view class="shopCart-modal" wx:if="{{shopState.modelOption}}" animation="{{shopState.rAnimate}}" bindtap="hideShop"></view>
+	<view class="shop-page-cart" animation="{{shopState.lAnimate}}">
+		<view class="shopCart-describe">
+			<view class="shopCart-describe-title">
+				<image src="{{pageData.img[0]}}"></image>
+				<view class="shopCart-describe-details">
+					<text class="shopCart-name">{{pageData.name}}</text>
+					<text class="shopCart-price">￥{{pageData.oprice}}</text>
+					<text class="shopCart-stock">库存{{pageData.stock}}个</text>
+				</view>
+			</view>
+			<view class="shopCart-describe-num">
+				<text class="shopCart-describe-number">购买数量：</text>
+				<template is="waresNum" data="{{num:shopNumber}}"></template>
+			</view>
+		</view>
+		<view class="shopCart-collect">
+			<view class="totalPrice">
+				￥{{filters.toFix(pageData.oprice * shopNumber)}}
+			</view>
+			<view class="add-to-cart" bindtap="addToCart">确认</view>
+		</view>
+	</view>
+	<template is="bgColor"/>
+	
+	<view class="tab-other">
+		<view wx:for="{{tabOther}}" wx:key="{{index}}" bindtap="tabOther" data-id='{{index}}' class="{{index == otherid?'active':''}}">
+			{{item}}
+		</view>
+	</view>
+	<view class="other-content">
+		<view class="other-left" wx:if="{{otherid == 0}}">
+			<rich-text nodes="{{pageData.content}}"></rich-text>
+			<view wx:for="{{pageData.detail_img}}" wx:key="{{index}}">
+				<image src="{{item}}"></image>
+			</view>
+		</view>
+		<view class="other-center" wx:if="{{otherid == 1}}">{{pageData.name}}为<text wx:if="{{pageData.nature == 1}}"><text>实体邮寄产品</text>，请买家在购买之前，认真选择邮寄地址，以免造成不必要的损失。</text><text wx:if="{{pageData.nature == 2}}"><text>线上交易产品</text>，请买家在购买之前，联系客服，并留下百度网盘账号，或其他文件传输软件账号，以便后续商品的交易。</text>
+		</view>
+		<view class="other-right" wx:if="{{otherid == 2}}">
+			<view class="other-comment" wx:for="{{commentary}}" wx:key="{{index}}">
+				<view class="other-comment-title">
+					<view>
+						<image src="{{item.src}}"></image><text>{{item.name}}</text>
+					</view>
+					<view class="other-comment-img">
+						<image wx:for="{{starMap}}" wx:for-item="item2" wx:for-index="index2" wx:key="{{index2}}" 
+						src="{{oindex[index]>item2.id?'../image/icon/xing2.png':'../image/icon/xing.png'}}" 
+						data-id2="{{index2}}" data-id="{{index}}">
+						</image>
+					</view>
+				</view>
+				<view class="other-comment-content">
+					{{item.content}}
+				</view>
+			</view>
+			<view class="other-comment-gd">
+				<navigator wx:if="{{commentary.length > 0}}" url="../commentary/commentary?id={{pageData.id}}" hover-class='none'>
+					<text>查看更多>></text>
+				</navigator>
+				<text wx:else>暂无评论</text>
+			</view>
+		</view>
+	</view>
+	
+	
+	<view class="goods-footer">
+		<button class="goods-footer-left1" open-type='contact'>
+			<image src="../image/icon/kf.png"></image>
+			<text class="goods-footer-text">联系客服</text>
+		</button>
+		<view class="goods-footer-left2" bindtap="tiaozShop">
+			<image src="../image/icon/gwc.png"></image>
+			<text class="goods-footer-text">购物车</text>
+		</view>
+		<view class="goods-footer-center" bindtap="shopJoin">加入购物车</view>
+		<view class="goods-footer-right" bindtap="buyNow">立即购买</view>
+	</view>
+</view>
+

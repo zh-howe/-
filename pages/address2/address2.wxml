@@ -1,0 +1,37 @@
+<view class="address2-page">
+	<form bindsubmit="formSubmit">
+		<view class="address-form">
+			<text>收件人</text>
+			<input type="text" name="name" placeholder="收件人" value="{{odata.name}}" />
+		</view>
+		<view class="address-form">
+			<text>联系电话</text>
+			<input type="number" name="tel" placeholder="联系电话" value="{{odata.tel}}" />
+		</view>
+		<view class="address-form">
+			<text>所在地区</text>
+			<picker mode="region" bindchange="bindRegionChange" value="{{value}}" custom-item="{{customItem}}">
+				<view class="picker">
+					<input type="text" name="address" disabled="true" placeholder="省、市、区、乡镇/街道" value="{{value}}" />
+				</view>
+			</picker>
+		</view>
+		<view class="address-form">
+			<text>详细地址</text>
+			<input type="text" name="adddetail" placeholder="道路、楼牌号等" value="{{odata.adddetail}}" />
+		</view>
+		<view class="address-form">
+			<text>邮编</text>
+			<input type="text" name="zipcode" placeholder="邮政编码(选填)" value="{{odata.zipcode}}" />
+		</view>
+		<view class="address-form address-default">
+			<text>设为默认地址</text>
+			<checkbox-group bindchange="checkboxChange">
+				<label class="checkbox">
+					<checkbox value="{{checked}}" checked="{{odata.default == 1?true:false}}" />
+				</label>
+			</checkbox-group>
+		</view>
+		<button form-type="submit">保存</button>
+	</form>
+</view>

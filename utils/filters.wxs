@@ -1,0 +1,8 @@
+var filters = {
+    toFix: function (value) {//保留两位小数点
+        return value.toFixed(2) 
+    }
+}
+module.exports = {   
+    toFix: filters.toFix
+}
